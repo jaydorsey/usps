@@ -10,6 +10,7 @@ module USPS
   #       USPS::AddressNotFoundError
   #       USPS::MultipleAddressError
   #       USPS::InvalidImageTypeError
+  #       USPS::InvalidZipCodeError
   class Error < StandardError
     attr_reader :number, :source
 
@@ -29,6 +30,7 @@ module USPS
         when '-2147219402'; InvalidStateError
         when '-2147219403'; MultipleAddressError
         when '-2147218900'; InvalidImageTypeError
+        when '-2147219399'; InvalidZipCodeError
         else              ; Error
         end
       end
@@ -43,4 +45,5 @@ module USPS
   class AddressNotFoundError < ValidationError; end
   class MultipleAddressError < ValidationError; end
   class InvalidImageTypeError < ValidationError; end
+  class InvalidZipCodeError < ValidationError; end
 end
