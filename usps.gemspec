@@ -12,8 +12,7 @@ Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.files        = Dir.glob("{lib,spec}/**/*") + %w(Rakefile LICENSE README.md)
 
-  s.add_runtime_dependency("builder",  ">= 2.1.2")
-  s.add_runtime_dependency("nokogiri", ">= 1.4.1")
-  s.add_runtime_dependency("typhoeus", ">= 0.1.18")
+  s.add_runtime_dependency("builder",  ">= 3.2.4")
+  s.add_runtime_dependency("nokogiri", ">= 1.11.1")
+  s.add_runtime_dependency("http")
 end
-

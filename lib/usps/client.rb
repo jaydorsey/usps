@@ -1,4 +1,4 @@
-require 'typhoeus'
+require 'http'
 
 module USPS
   class Client
@@ -7,13 +7,15 @@ module USPS
 
       # Make the API request to the USPS servers. Used to support POST, now it's
       # just GET request *grumble*.
-      response = Typhoeus::Request.get(server, {
-        :timeout => USPS.config.timeout,
-        :params => {
-          "API" => request.api,
-          "XML" => request.build
-        }
-      })
+      response = ::HTTP.
+        timeout(USPS.config.timeout).
+        get(
+          server, {
+          :params => {
+            "API" => request.api,
+            "XML" => request.build
+          }
+        })
 
       # Parse the request
       xml = Nokogiri::XML.parse(response.body)
