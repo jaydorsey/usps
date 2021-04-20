@@ -25,5 +25,5 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
       - name: Bundle
         run: bundle install
-      - name: Run rubocop
+      - name: Run rspec
         run: bundle exec rspec

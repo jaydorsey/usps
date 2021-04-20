@@ -3,7 +3,7 @@ require 'spec_helper'
 describe USPS::TrackDetail do
   it "should have the expected fields" do
     track_detail = USPS::TrackDetail.new
-    
+
     expect(track_detail).to respond_to(
       :event_time, :event_time=,
       :event_date, :event_date=,
@@ -29,15 +29,15 @@ describe USPS::TrackDetail do
     expect(track_detail.event_city).to eq('123 Main St')
     expect(track_detail.event).to eq('DELIVERED')
   end
-  
+
   it "should calculate a date" do
     track_detail = USPS::TrackDetail.new(
       :event_time => '9:24 pm',
       :event_date => 'March 28, 2001',
     )
-    expect(track_detail.date).to eq(Time.parse('2001-03-28 21:24:00 -0500'))
+    expect(track_detail.date).to eq(Time.parse('2001-03-28 21:24:00 +0000'))
   end
-  
+
   it "should handle blank dates" do
     track_detail = USPS::TrackDetail.new(
       :event_time => '',
