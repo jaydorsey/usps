@@ -25,5 +25,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
       - name: Bundle
         run: bundle install
+      - name: Audit gems
+        run: bundle-audit check --update
       - name: Run rspec
         run: bundle exec rspec

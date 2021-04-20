@@ -6,4 +6,5 @@ group :development do
   gem 'rake'
   gem 'rspec'
   gem 'rspec-core'
+  gem 'bundler-audit'
 end
