@@ -22,11 +22,11 @@ class USPS::TrackDetail < Struct.new(:event_time, :event_date, :event, :event_ci
 
     block.call(self) if block
   end
-  
+
   def date
     time = "#{event_date} #{event_time}".strip
     begin
-      Time.parse(time) unless time.empty?
+      Time.parse("#{time} UTC") unless time.empty?
     rescue ArgumentError
       return nil
     end
