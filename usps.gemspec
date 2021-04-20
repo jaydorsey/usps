@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency("builder",  ">= 3.2.4")
   s.add_runtime_dependency("nokogiri", ">= 1.11.1")
   s.add_runtime_dependency("http")
+  s.add_development_dependency("rubocop")
 end
