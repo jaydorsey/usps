@@ -44,12 +44,10 @@ module USPS
       dll = testing? ? "ShippingAPITest.dll" : "ShippingAPI.dll"
 
       case
-      when request.secure?
-        "https://secure.shippingapis.com/#{dll}"
       when testing?
-        "http://testing.shippingapis.com/#{dll}"
+        "https://stg-production.shippingapis.com#{dll}"
       else
-        "http://production.shippingapis.com/#{dll}"
+        "https://production.shippingapis.com/#{dll}"
       end
     end
   end
